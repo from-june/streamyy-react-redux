@@ -1,5 +1,10 @@
 import React from 'react';
+import Router from 'components/Router';
 
-const App = () => <h1>App</h1>;
+const App = () => (
+  <div className="ui container">
+    <Router />
+  </div>
+);
 
 export default App;

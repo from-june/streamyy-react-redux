@@ -16,10 +16,12 @@ const StreamEdit = ({ fetchStream, stream, editStream }) => {
 
   useEffect(() => {
     fetchStream(id);
-  }, []);
+  }, [fetchStream, id]);
 
   return (
-    <StreamForm title={title} description={description} onSubmit={onSubmit} />
+    stream && (
+      <StreamForm title={title} description={description} onSubmit={onSubmit} />
+    )
   );
 };
 

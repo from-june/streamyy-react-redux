@@ -8,14 +8,19 @@ const StreamList = ({ fetchStreamList, streams, currentUserId }) => {
     fetchStreamList();
   }, [fetchStreamList]);
 
-  const renderAdmin = userId => {
+  const renderAdmin = (userId, id) => {
     if (userId === currentUserId) {
       return (
         <div
           style={{ textAlign: 'right', marginTop: 'auto' }}
           className="right floated content"
         >
-          <button className="ui button primary basic tiny">EDIT</button>
+          <Link
+            className="ui button primary basic tiny"
+            to={`/streams/edit/${id}`}
+          >
+            EDIT
+          </Link>
           <button className="ui button red basic tiny">DELETE</button>
         </div>
       );
@@ -35,7 +40,7 @@ const StreamList = ({ fetchStreamList, streams, currentUserId }) => {
                 <p className="header">{stream.title}</p>
                 <p className="description">{stream.description}</p>
               </div>
-              {renderAdmin(stream.userId)}
+              {renderAdmin(stream.userId, stream.id)}
             </div>
           ))}
         </div>

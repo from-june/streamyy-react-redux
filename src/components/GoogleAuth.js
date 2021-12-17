@@ -22,7 +22,7 @@ const GoogleAuth = ({ signIn, signOut, isSignedIn }) => {
           auth.current.isSignedIn.listen(onAuthChange);
         });
     });
-  }, []);
+  });
 
   const onAuthChange = isSignedIn => {
     if (isSignedIn) signIn(auth.current.currentUser.get().getId());

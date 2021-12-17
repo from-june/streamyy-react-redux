@@ -13,7 +13,7 @@ const Router = () => (
     <Routes>
       <Route path="/" element={<StreamList />} />
       <Route path="/streams/new" element={<StreamCreate />} />
-      <Route path="/streams/show" element={<StreamShow />} />
+      <Route path="/streams/:id" element={<StreamShow />} />
       <Route path="/streams/edit/:id" element={<StreamEdit />} />
       <Route path="/streams/delete/:id" element={<StreamDelete />} />
     </Routes>

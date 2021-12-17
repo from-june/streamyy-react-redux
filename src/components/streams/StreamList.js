@@ -42,7 +42,9 @@ const StreamList = ({ fetchStreamList, streams, currentUserId }) => {
             <div className="item" key={stream.id}>
               <i className="large middle aligned play circle icon" />
               <div className="middle aligned content">
-                <p className="header">{stream.title}</p>
+                <Link to={`/streams/${stream.id}`} className="header">
+                  {stream.title}
+                </Link>
                 <p className="description">{stream.description}</p>
               </div>
               {renderAdmin(stream.userId, stream.id)}

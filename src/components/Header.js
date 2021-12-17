@@ -4,9 +4,9 @@ import GoogleAuth from 'components/GoogleAuth';
 
 const Header = () => {
   return (
-    <div className="ui secondary menu">
+    <div className="ui secondary menu" style={{ padding: '10px 0' }}>
       <Link to="/" className="header item">
-        Streamyy
+        STREAMYY
       </Link>
       <div className="right menu">
         <Link to="/" className="item">

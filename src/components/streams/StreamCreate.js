@@ -1,7 +1,11 @@
 import React from 'react';
-import { set, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStream } from 'actions';
+import { useForm } from 'react-hook-form';
 
-const StreamCreate = () => {
+const StreamCreate = ({ createStream }) => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -12,8 +16,10 @@ const StreamCreate = () => {
   const onSubmit = data => {
     console.log(data);
 
+    createStream(data);
     setValue('title', '');
     setValue('description', '');
+    navigate('/');
   };
 
   return (
@@ -47,4 +53,4 @@ const StreamCreate = () => {
   );
 };
 
-export default StreamCreate;
+export default connect(null, { createStream })(StreamCreate);

@@ -21,7 +21,12 @@ const StreamList = ({ fetchStreamList, streams, currentUserId }) => {
           >
             EDIT
           </Link>
-          <button className="ui button red basic tiny">DELETE</button>
+          <Link
+            to={`/streams/delete/${id}`}
+            className="ui button red basic tiny"
+          >
+            DELETE
+          </Link>
         </div>
       );
     }

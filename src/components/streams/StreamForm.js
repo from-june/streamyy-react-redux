@@ -1,12 +1,18 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const StreamForm = ({ onSubmit }) => {
+const StreamForm = ({ onSubmit, title, description }) => {
+  const preloadedValue = {
+    title,
+    description
+  };
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm();
+  } = useForm({
+    defaultValues: preloadedValue
+  });
 
   return (
     <form className="ui form error" onSubmit={handleSubmit(onSubmit)}>

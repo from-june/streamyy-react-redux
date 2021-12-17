@@ -10,9 +10,8 @@ const StreamCreate = ({ createStream }) => {
   const { setValue } = useForm();
 
   const onSubmit = data => {
-    console.log(data);
-
     createStream(data);
+
     setValue('title', '');
     setValue('description', '');
     navigate('/');

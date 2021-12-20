@@ -52,11 +52,13 @@ const StreamList = ({ fetchStreamList, streams, currentUserId }) => {
           ))}
         </div>
       </div>
-      <div style={{ textAlign: 'right' }}>
-        <Link to="/streams/new" className="ui inverted button secondary">
-          Create Stream
-        </Link>
-      </div>
+      {currentUserId && (
+        <div style={{ textAlign: 'right' }}>
+          <Link to="/streams/new" className="ui inverted button secondary">
+            Create Stream
+          </Link>
+        </div>
+      )}
     </>
   );
 };

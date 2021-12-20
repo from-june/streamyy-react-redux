@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from 'actions';
 
@@ -9,18 +9,20 @@ const GoogleAuth = ({ signIn, signOut, isSignedIn }) => {
 
   const auth = useRef(null);
 
-  gapi.load('client:auth2', () => {
-    gapi.client
-      .init({
-        clientId: CLIENT_ID,
-        scope: 'email'
-      })
-      .then(() => {
-        auth.current = gapi.auth2.getAuthInstance();
-        onAuthChange(auth.current.isSignedIn.get());
-        auth.current.isSignedIn.listen(onAuthChange);
-      });
-  });
+  useEffect(() => {
+    gapi.load('client:auth2', () => {
+      gapi.client
+        .init({
+          clientId: CLIENT_ID,
+          scope: 'email'
+        })
+        .then(() => {
+          auth.current = gapi.auth2.getAuthInstance();
+          onAuthChange(auth.current.isSignedIn.get());
+          auth.current.isSignedIn.listen(onAuthChange);
+        });
+    });
+  }, []);
 
   const onAuthChange = isSignedIn => {
     if (isSignedIn) signIn(auth.current.currentUser.get().getId());

@@ -1,0 +1,20 @@
+{
+  "streams": [
+    {
+      "title": "Streamyy",
+      "description": "This is my first streamyy",
+      "id": 1
+    },
+    {
+      "title": "Create Streamyy",
+      "description": "with redux",
+      "id": 2
+    },
+    {
+      "title": "This is a new stream",
+      "description": "WITH REDUX",
+      "userId": "101360074232779023488",
+      "id": 3
+    }
+  ]
+}

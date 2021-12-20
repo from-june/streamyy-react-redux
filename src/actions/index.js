@@ -1,6 +1,5 @@
+import { createAction } from '@reduxjs/toolkit';
 import {
-  SIGN_IN,
-  SIGN_OUT,
   CREATE_STREAM,
   FETCH_STREAM_LIST,
   EDIT_STREAM,
@@ -9,18 +8,11 @@ import {
 } from 'actions/types';
 import { streams } from 'apis/streams';
 
-export const signIn = userId => {
-  return {
-    type: SIGN_IN,
-    payload: userId
-  };
-};
+export const signIn = createAction('SIGN_IN', userId => {
+  return { payload: userId };
+});
 
-export const signOut = () => {
-  return {
-    type: SIGN_OUT
-  };
-};
+export const signOut = createAction('SIGN_OUT');
 
 export const createStream = formValue => async (dispatch, getState) => {
   const { userId } = getState().auth;

@@ -8,7 +8,6 @@ const Modal = ({ onDismiss, actions, header, content }) => {
         onClick={e => e.stopPropagation()}
         className="ui tiny modal transition visible active"
       >
-        <i onClick={onDismiss} className="icon close" />
         <h3 className="header">{header}</h3>
         <div className="content">{content}</div>
         <div className="actions">{actions}</div>

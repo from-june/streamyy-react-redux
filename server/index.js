@@ -1,5 +1,3 @@
-/* 출처: 벨로퍼트님 블로그, https://redux-advanced.vlpt.us/3/09.html */
-
 const jsonServer = require('json-server');
 const path = require('path');
 
